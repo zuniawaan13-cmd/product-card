@@ -21,6 +21,9 @@
       <p id="product-status">In Stock</p>
       <button id="toggle-stock-btn">Toggle Stock Status</button>
       <button class="delete-btn">Remove Item</button>
+      <button class="delete-btn">Remove button</button>
+      <button class="delete-btn">Remove second item</button>
+      <button class="delete-btn">Remove third item</button>
     </div>
 
     <script>
@@ -42,22 +45,25 @@
 
       let toggleBtn = document.querySelector("#toggle-stock-btn");
       toggleBtn.addEventListener("click", () => {
-       if(productSts.classList.contains("inStock")){
-        productSts.classList.remove("inStock")
-        productSts.classList.add("outStock")
-        productSts.textContent="Out of stock"
-       }
-       else{
-        productSts.classList.remove("outStock")
-        productSts.classList.add("inStock")
-        productSts.textContent="In Stock"
-       }
-
+        if (productSts.classList.contains("inStock")) {
+          productSts.classList.remove("inStock");
+          productSts.classList.add("outStock");
+          productSts.textContent = "Out of stock";
+        } else {
+          productSts.classList.remove("outStock");
+          productSts.classList.add("inStock");
+          productSts.textContent = "In Stock";
+        }
       });
 
+      //  Using querySelectorAll, select all elements with class delete-btn (add a couple more delete buttons to your HTML to make this meaningful) and add a click event listener to each one using a loop, so clicking any of them changes that button's own text to "Removed" using textContent.
 
-
-     
+      let deleteBtn = document.querySelectorAll(".delete-btn");
+      deleteBtn.forEach((button) => {
+        button.addEventListener("click", () => {
+          button.textContent = "Removed";
+        });
+      });
     </script>
   </body>
 </html>
