@@ -1,42 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .inStock{
-      color: green;
-    }
-  </style>
-</head>
-<body>
-  <div id="product-card">
-  <h2 id="product-name">Wireless Headphones</h2>
-  <p id="product-price">$49.99</p>
-  <p id="product-status">In Stock</p>
-  <button id="toggle-stock-btn">Toggle Stock Status</button>
-  <button class="delete-btn">Remove Item</button>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .inStock {
+        color: green;
+      }
 
-<script>
-  // Using getElementById, select product-name, product-price, and product-status, and log all three to the console.
+      .outStock {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="product-card">
+      <h2 id="product-name">Wireless Headphones</h2>
+      <p id="product-price">$49.99</p>
+      <p id="product-status">In Stock</p>
+      <button id="toggle-stock-btn">Toggle Stock Status</button>
+      <button class="delete-btn">Remove Item</button>
+    </div>
 
-  let productName=document.getElementById("product-name")
-  let productPrice=document.getElementById("product-price")
-  let productStatus=document.getElementById("product-status")
-  console.log(productName)
-  console.log(productPrice)
-  console.log(productStatus)
+    <script>
+      // Using getElementById, select product-name, product-price, and product-status, and log all three to the console.
 
-  // Using querySelector, select #product-status and use classList.add() to give it a class called in-stock (define this class in a <style> tag with color: green;).
+      let productName = document.getElementById("product-name");
+      let productPrice = document.getElementById("product-price");
+      let productStatus = document.getElementById("product-status");
+      console.log(productName);
+      console.log(productPrice);
+      console.log(productStatus);
 
-    let productSts=document.querySelector("#product-status")
-    productSts.classList.add("inStock")
+      // Using querySelector, select #product-status and use classList.add() to give it a class called in-stock (define this class in a <style> tag with color: green;).
 
-    
+      let productSts = document.querySelector("#product-status");
+      productSts.classList.add("inStock");
+
+      // Add a click event listener to toggle-stock-btn that uses classList.toggle() to switch the status text's class between in-stock (green) and out-of-stock (red — also define this in your <style> tag). Also update the actual text using textContent to say "In Stock" or "Out of Stock" depending on the current state.
+
+      let toggleBtn = document.querySelector("#toggle-stock-btn");
+      toggleBtn.addEventListener("click", () => {
+       if(productSts.classList.contains("inStock")){
+        productSts.classList.remove("inStock")
+        productSts.classList.add("outStock")
+        productSts.textContent="Out of stock"
+       }
+       else{
+        productSts.classList.remove("outStock")
+        productSts.classList.add("inStock")
+        productSts.textContent="In Stock"
+       }
+
+      });
 
 
-</script>
-</body>
+
+     
+    </script>
+  </body>
 </html>
