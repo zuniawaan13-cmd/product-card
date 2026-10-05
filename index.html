@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .inStock{
+      color: green;
+    }
+  </style>
 </head>
 <body>
   <div id="product-card">
@@ -23,6 +28,14 @@
   console.log(productName)
   console.log(productPrice)
   console.log(productStatus)
+
+  // Using querySelector, select #product-status and use classList.add() to give it a class called in-stock (define this class in a <style> tag with color: green;).
+
+    let productSts=document.querySelector("#product-status")
+    productSts.classList.add("inStock")
+
+    
+
 
 </script>
 </body>
